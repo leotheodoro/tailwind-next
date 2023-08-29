@@ -1,8 +1,10 @@
 export default function Home() {
   return (
     <div>
-      <h1 className="font-mono font-bold text-emerald-600 text-5xl flex flex-items gap-3 before:w-1 before:h-116 before:bg-sky-500 before:flex">Hello Tailwind</h1>
-      <h2>Hello Tailwind</h2>
+      <h1 className="flex-items before:h-116 flex gap-3 font-mono text-5xl font-bold text-emerald-600 before:flex before:w-1 before:bg-sky-500">
+        Hello Tailwind
+      </h1>
+      <h2 className="text-3xl font-bold">Hello Tailwind</h2>
       <h3>Hello Tailwind</h3>
     </div>
   )
