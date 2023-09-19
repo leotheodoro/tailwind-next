@@ -1,7 +1,10 @@
-import { Mail } from 'lucide-react'
+import { Bold, Italic, Link, List, ListOrdered, Mail } from 'lucide-react'
 import { InputControl, InputPrefix, InputRoot } from './components/Input'
 import { SettingsTabs } from './components/SettingsTabs'
 import * as FileInput from './components/Form/FileInput'
+import { Select } from './components/Form/Select'
+import { SelectItem } from './components/Form/Select/SelectItem'
+import { TextArea } from './components/Form/TextArea'
 
 export default function Home() {
   return (
@@ -106,9 +109,10 @@ export default function Home() {
             >
               Country
             </label>
-            <InputRoot>
-              <InputControl id="country" defaultValue="CTO" />
-            </InputRoot>
+            <Select placeholder="Select a country...">
+              <SelectItem value="br" text="Brazil" />
+              <SelectItem value="us" text="United States of America" />
+            </Select>
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
@@ -118,9 +122,13 @@ export default function Home() {
             >
               Timezone
             </label>
-            <InputRoot>
-              <InputControl id="timezone" defaultValue="CTO" />
-            </InputRoot>
+            <Select placeholder="Select a timezone...">
+              <SelectItem
+                value="pst"
+                text="Pacific Standard Time (UTC-08:00)"
+              />
+              <SelectItem value="am" text="America São Paulo (UTC-03:00)" />
+            </Select>
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
@@ -130,6 +138,57 @@ export default function Home() {
                 Write a short introduction.
               </span>
             </label>
+            <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3">
+                <Select placeholder="" defaultValue="normal">
+                  <SelectItem
+                    value="normal"
+                    defaultChecked
+                    text="Normal text"
+                  />
+                  <SelectItem value="md" text="Markdown" />
+                </Select>
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    className="rounded-md p-2 hover:bg-zinc-50"
+                  >
+                    <Bold className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 hover:bg-zinc-50"
+                  >
+                    <Italic className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 hover:bg-zinc-50"
+                  >
+                    <Link className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 hover:bg-zinc-50"
+                  >
+                    <List className="h-4 w-4 text-zinc-500" strokeWidth={3} />
+                  </button>
+                  <button
+                    type="button"
+                    className="rounded-md p-2 hover:bg-zinc-50"
+                  >
+                    <ListOrdered
+                      className="h-4 w-4 text-zinc-500"
+                      strokeWidth={3}
+                    />
+                  </button>
+                </div>
+              </div>
+              <TextArea
+                id="bio"
+                defaultValue="Hi there! I'm a seasoned software developer with over seven years of experience, hailing from Bauru, São Paulo, Brazil. My journey into the tech world started when I was just 15, and ever since then, programming has been an integral part of my life."
+              />
+            </div>
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
